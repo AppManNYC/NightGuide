@@ -1,6 +1,9 @@
-# NightGuideX
 
-One Paragraph of project description goes here
+
+# NightGuideX
+Screenshot:
+
+<img width="1439" alt="Screen Shot 2019-06-10 at 8 41 22 AM" src="https://user-images.githubusercontent.com/11365270/59196072-a2230680-8b5b-11e9-83d5-5fbf8734035d.png">
 
 ## Getting Started
 
