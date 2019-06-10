@@ -85,7 +85,8 @@ You will also see any lint errors in the console.
  + Authorization / Authentication
     + Posts
     + Comments
-+ 
++ Rating System
++ User Profiles
     
     
 ***
