@@ -1,0 +1,41 @@
+footer {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+	margin: 0 auto;
+	text-align: center;
+	border-top: 2px solid #0707C5;
+
+}
+
+#footLinks .links {
+	opacity: .9;
+	filter: alpha(opacity=90);
+	text-decoration: none;
+	width: 30px;
+	height: 30px;
+	float: right;
+	display: block;
+	margin: 5px;
+}
+
+#footLinks .links img {
+	width: 30px;
+	height: 30px;
+}
+
+#footLinks {
+	display:flex;
+	justify-content:center;
+	align-items:flex-end;
+	font-size: 1em;
+}
+
+footer p {
+	font-size: 1em;
+}
+
+.center_div{
+	margin: 0 auto;
+	width:80%
+}

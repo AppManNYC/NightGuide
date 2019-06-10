@@ -1,0 +1,97 @@
+<% include ../partials/header %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <p style="font-size: 2em; font-family: 'Baloo', cursive; color:white; text-shadow: 2px 2px #000000;" class="lead"><strong><%= nightlife.name %></strong></p>
+      <div class="list-group">
+        <li class="list-group-item active">Details</li>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="thumbnail">
+        <img class="img-responsive" src="<%= nightlife.image %>" />
+        <div class="caption-full">
+          <h4 class="pull-right"><a><%= nightlife.city %>, <%= nightlife.state %></a></h4>
+          <h4 style="font-family: 'Special Elite', cursive;"><%= nightlife.name %></h4>
+          <p style="font-family: 'Special Elite', cursive;"><%= nightlife.address %></p>
+          <p style="font-family: 'Special Elite', cursive;"><%= nightlife.city %>, <%= nightlife.state %></p>
+          <p style="font-family: 'Special Elite', cursive;"><%= nightlife.zip %></p>
+          <h4 style="font-family: 'Special Elite', cursive;">Rating: <%= nightlife.rating.toFixed(2) %></h4><br />
+          <h4 style="font-family: 'Special Elite', cursive;">Description: </h4><p><%= nightlife.description %></p>
+          <p>
+            <em>Submitted by: <a href="/users/<%= nightlife.author.id %>"><%= nightlife.author.username %></a>, <%= moment(nightlife.createdAt).fromNow() %></em>
+          </p>
+          <% if(currentUser && nightlife.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+          <a class="btn btn-xs btn-warning" href="/nightlife/<%= nightlife._id %>/edit">Edit</a>
+          <form
+            id="delete-form"
+            action="/nightlife/<%= nightlife._id %>?_method=DELETE"
+            method="POST"
+          >
+            <button class="btn btn-xs btn-danger">Delete</button>
+          </form>
+          <% }%>
+        </div>
+      </div>
+      <div class="well">
+      <form action="/nightlife/<%= nightlife._id %>/ratings" method="POST">
+                <div class="form-group">
+                    <label for="rating">Leave a rating:</label>
+                    <fieldset class="starability-basic form-group" id="rating">
+                      <input type="radio" id="first-rate5" name="rating[rating]" value="5" />
+                      <label for="first-rate5" title="Amazing">5 stars</label>
+                      <input type="radio" id="first-rate4" name="rating[rating]" value="4" />
+                      <label for="first-rate4" title="Very good">4 stars</label>
+                      <input type="radio" id="first-rate3" name="rating[rating]" value="3" />
+                      <label for="first-rate3" title="Average">3 stars</label>
+                      <input type="radio" id="first-rate2" name="rating[rating]" value="2" />
+                      <label for="first-rate2" title="Not good">2 stars</label>
+                      <input type="radio" id="first-rate1" name="rating[rating]" value="1" />
+                      <label for="first-rate1" title="Terrible">1 star</label>
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-sm btn-primary">
+                        Submit rating!
+                    </button>
+                </div>
+            </form>
+            <div>
+                Current Rating: <%= nightlife.rating.toFixed(2) %>
+            </div>
+        </div>
+      <div class="well">
+        <div class="text-right">
+          <a
+            class="btn btn-success"
+            href="/nightlife/<%= nightlife._id %>/comments/new"
+            >Add New Comment</a
+          >
+        </div>
+        <hr />
+        <% nightlife.comments.forEach((comment) => { %>
+        <div class="row">
+          <div class="col-md-12">
+            <strong><%= comment.author.username %></strong>
+            <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
+            <div>
+              <%= comment.text %>
+            </div>
+            <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+            <div class="pull-right">
+              <a class="btn btn-xs btn-warning" href="/nightlife/<%=nightlife._id %>/comments/<%=comment._id %>/EDIT" >Edit</a>
+              <form id="delete-form" action="/nightlife/<%=nightlife._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST" >
+                <input type="submit" class="btn btn-xs btn-danger" value="Delete" />
+              </form>
+            </div>
+            <% } %>
+            <hr>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% include ../partials/footer %>

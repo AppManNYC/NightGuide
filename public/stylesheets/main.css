@@ -1,0 +1,63 @@
+body {
+  font-family: 'Acme', sans-serif;
+  background:url(https://indonesiaexpat.biz/wp-content/uploads/2018/03/party.jpg) no-repeat center center/cover;
+  height:100vh
+}
+
+
+#delete-form {
+  display: inline;
+}
+
+.thumbnail {
+  padding: 0;
+}
+
+.special2 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.special {
+  font-family: 'Baloo', cursive;
+  font-size: 6em;
+}
+
+.jumbotron {
+  background-color: #F8F8F8 !important;
+  font-family: 'Acme', sans-serif;
+}
+
+
+
+.jumbotron h1 {
+  color: #6944ff !important;
+  font-weight: bold;
+}
+.thumbnail img {
+  width: 100%;
+}
+
+.thumbnail .caption-full {
+  padding: 9px;
+}
+
+.thumbnail img {
+  width: 100%;
+}
+
+.thumbnail {
+  padding: 0;
+}
+
+.thumbnail .caption-full {
+  padding: 9px;
+}
+
+#delete-form {
+  display: inline;
+}
+
+/* Starability Rating Form */
+.starability-basic {
+  min-height: 0;
+}

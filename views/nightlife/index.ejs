@@ -1,0 +1,48 @@
+<% include ../partials/header %>
+
+    <div syle="background-color: blue;" class="jumbotron">
+        <div style="margin: 0 auto; text-align: center">
+            <h1 class="special">Welcome To Night Guide X!</h1>
+            <br>
+            <h3 class="special2">"You can always retake a class..."</h3>
+            <h2 class="special2">"But you can NEVER re-live a party!</h2>
+            <br><br>
+            <p>
+                <a class="btn btn-primary btn-large" href="/nightlife/new">Add New Nightlife</a>
+            </p>
+        </div>
+    </div>
+
+<!--    <header class="jumbotron">-->
+<!--        <div class="container" style="margin: 0 auto; text-align: center">-->
+<!--            <h1>Welcome To Night Guide X!</h1>-->
+<!--            <br>-->
+<!--            <h3>"You can always retake a class..."</h3>-->
+<!--            <h2>"But you can NEVER re-live a party!</h2>-->
+<!--            <br><br>-->
+<!--            <p>-->
+<!--                <a class="btn btn-primary btn-large" href="/nightlife/new">Add New Nightlife</a>-->
+<!--            </p>-->
+<!--        </div>-->
+<!--    </header>-->
+
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% nightlife.forEach(function(nightlife){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src="<%= nightlife.image %>">
+                    <div class="caption">
+                        <h4 style="font-family: 'Baloo', cursive;"><%= nightlife.name %></h4>
+                        <h4 style="font-family: 'Special Elite', cursive;"><%= nightlife.city %></h4>
+                        <h4 style="font-family: 'Special Elite', cursive;"><%= nightlife.state %></h4>
+                    </div>
+                    <p>
+                        <a href="/nightlife/<%= nightlife._id %>" class="btn btn-primary">Details</a>
+                    </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+
+<% include ../partials/footer %>

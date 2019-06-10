@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+<div class="container">
+<div class="row">
+	    <div class="col-md-3">
+      		<p style="font-size: 2em; font-family: 'Baloo', cursive; color:white; text-shadow: 2px 2px #000000;" class="lead"><strong><%= user.firstName + " " + user.lastName %></strong></p>
+			<div class="list-group">
+        		<li class="list-group-item active">Details</li>
+      		</div>
+		</div>
+	<div class="col-md-9">
+		<div class="thumbnail">
+			<img class="img-responsive" src="<%= user.image %>" />
+			<div class="caption-full">
+          		<h4 class="pull-right"><a><%= user.firstName %>, <%= user.lastName %></a></h4>
+          		<h4 style="font-family: 'Special Elite', cursive;"><%= user.email %></h4>
+          		<p style="font-family: 'Special Elite', cursive;"><%= user.username %></p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<% include ../partials/footer %>
